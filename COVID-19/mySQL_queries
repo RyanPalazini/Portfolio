@@ -1,3 +1,4 @@
+'''mySQL
 /*
 Data acquired from:
 https://ourworldindata.org/covid-deaths
@@ -202,3 +203,4 @@ ON y.location=v.location AND y.date = v.date
 WHERE
 	y.date = '2022-05-24'
 ORDER BY gdp_per_capita DESC;
+'''
