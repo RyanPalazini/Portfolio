@@ -2,7 +2,7 @@
 <p>https://ourworldindata.org/covid-deaths<br>
 https://github.com/owid/covid-19-data/tree/master/public/data</p>
 
-<p>The raw data is contained in a single table, but was split into tables <i>deaths</i> and <i>vaccinations</i> for the purpose of these queries. This increased the opportunity to demonstrate joins and them more readable when a self-join would have been necessary regardless.</p>
+<p>The raw data is contained in a single table, but was split into tables <i>deaths</i> and <i>vaccinations</i> for the purpose of these queries. This increased the opportunity to demonstrate joins and them more readable when a self-join would have been necessary regardless. These tabless are included in the repository folder <i>COVID-19</i></p>
 
 <h3>Queries:</h3>
 <h4>Total Cases and Total Deaths in United States</h4>
