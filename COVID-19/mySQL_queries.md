@@ -203,7 +203,7 @@ ORDER BY gdp_per_capita DESC;
 
 <br><h4>Create view for future visualization</h4>
 ```mySQL
-CREATE View PercentVaccinated AS
+CREATE VIEW PercentVaccinated AS
 SELECT 
 	d.continent, 
 	d.location, 
