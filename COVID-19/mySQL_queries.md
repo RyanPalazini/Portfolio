@@ -1,50 +1,54 @@
+<h3>Data acquired from:</h3>
+<p>https://ourworldindata.org/covid-deaths<br>
+https://github.com/owid/covid-19-data/tree/master/public/data</p>
 
-Data acquired from:
-https://ourworldindata.org/covid-deaths
-https://github.com/owid/covid-19-data/tree/master/public/data
+The raw data is contained in a single table, but was split into tables <i>deaths</i> and <i>vaccinations</i> for the purpose of these queries. This increased the opportunity to demonstrate joins and them more readable when a self-join would have been necessary regardless.
 
 
+<br><h4>Total Cases and Total Deaths in United States</h4>
 
--- Total Cases and Total Deaths in United States
-
-SELECT 
-    location,
-    date,
-    total_cases,
-    total_deaths,
+```mySQL
+SELECT
+	location,
+	date,
+	total_cases,
+	total_deaths,
 	(total_deaths / total_cases) * 100 AS OverallDeathRate
-FROM deaths
+FROM Deaths
 WHERE location = "United States"
 ORDER BY date DESC;
+```
 
 
+<br><h4>Overall death rate to date (May 24, 2022)</h4>
 
---- Overall death rate to date (May 24, 2022)
-
+```mySQL
 SELECT
     location,
     date,
     total_cases,
     total_deaths,
   	ROUND((total_deaths / total_cases) * 100,3) AS Death_Rate
-FROM deaths
+FROM Deaths
 WHERE date = '2022-05-24'
 ORDER BY Death_Rate DESC;
+```
 
 
+<br><h4>Current total deaths by country</h4>
 
--- Current total deaths by country
-
+```mySQL
 SELECT location, MAX(total_deaths) as 'Total_Deaths'
-FROM deaths
+FROM Deaths
 WHERE continent <> ''
 GROUP BY location
 ORDER BY Total_Deaths DESC;
+```
 
 
+<br><h4>Daily Hospitalization info including estimate of hospital capcity (percentage)</h4>
 
--- Daily Hospitalization info including estimate of hospital capcity (percentage)
-
+```mySQL
 SELECT 
 	v.location,
 	v.date,
@@ -57,11 +61,12 @@ FROM Vaccinations v
 LEFT JOIN Deaths d 
 ON v.location = d.location AND v.date = d.date
 ORDER BY HospCapacityEstimate DESC;
+```
 
 
+<br><h4>Using subquery to gather global info</h4>
 
--- Using subquery to gather global info
-
+```mySQL
 SELECT
 	date,
 	Global_New_Cases,
@@ -80,11 +85,14 @@ FROM
 	FROM Deaths
 	GROUP BY date) x
 ORDER BY date DESC;
+```
 
 
 
--- Using CTE for percentage of population vaccinated, using window function for rolling vaccination count
 
+<br><h4>Using CTE for percentage of population vaccinated, using window function for rolling vaccination count</h4>
+
+```mySQL
 With PopVac (continent, location, date, population, new_vaccinations, RollingVaccinations) AS
 (
 SELECT 
@@ -101,11 +109,13 @@ ON d.location = v.location and d.date = v.date
 SELECT *, ROUND(RollingVaccinations/population * 100, 3) as CountryPercentVaccinated
 FROM PopVac
 ORDER BY location, date DESC;
+```
 
 
 
--- Using temp table for percentage of population vaccinated, using window function for rolling vaccination count
+<br><h4>Using temp table for percentage of population vaccinated, using window function for rolling vaccination count (same result as previous query)</h4>
 
+```mySQL
 CREATE TEMPORARY TABLE IF NOT EXISTS PercentVaccinated
 SELECT 
 	d.continent, 
@@ -123,36 +133,21 @@ FROM PercentVaccinated
 ORDER BY location, date DESC;
 
 DROP TEMPORARY TABLE PercentVaccinated;
+```
 
 
+<br><h4>Using CTE and OVER clause to estimate the rate at which COVID is spreading.</h4>
 
--- Create view for future visualization
-
-CREATE View PercentVaccinated AS
-SELECT 
-	d.continent, 
-	d.location, 
-	d.date, 
-	d.population, 
-	v.new_vaccinations,
-	sum(v.new_vaccinations) OVER (PARTITION BY d.location ORDER BY d.location, d.date) as RollingVaccinations 
-FROM Deaths d
-LEFT JOIN Vaccinations v
-ON d.location = v.location and d.date = v.date;
-
-
-
-/* 
-Using CTE and OVER clause to estimate the rate at which COVID is spreading. According to CDC update Januart 14, 2022: 
-There's "an average period of infectiousness and risk of transmission between 2-3 days before and 8 days after symptom onset."
+According to CDC update Januart 14, 2022: 
+> There's "an average period of infectiousness and risk of transmission between 2-3 days before and 8 days after symptom onset."
 (https://www.cdc.gov/coronavirus/2019-ncov/hcp/duration-isolation.html)
 
 It will be assumed that the new cases on any given day were infected by the new cases of the previous 10 days--those who were still infectious.
 Truly calculating the spread requires much more complicated methods, such as a Susceptible-Exposed-Infected-Removed (SEIR) Model. In other words,
 this is not an actual metric of spread, but is merely for exercise.
-*/
 
-With Spread (location, date, new_cases, RollingCases) AS
+```mySQL
+WITH Spread (location, date, new_cases, RollingCases) AS
 (
 SELECT 
 	location,
@@ -164,13 +159,15 @@ FROM Deaths
 SELECT *, ROUND(New_Cases/RollingCases * 100, 3) as DailySpreadPercentage
 FROM Spread
 ORDER BY location, date DESC;
+```
 
 
 
--- Death Rate, percent vaccinated, etc. by country during the past year
--- Many locations do not provide fully vaccinated data or total_boosters, so that data is particularly incomplete
+<br><h4>Death Rate, percent vaccinated, etc. by country during the past year</h4>
+Many locations do not provide fully vaccinated data or total_boosters, so that data is particularly incomplete
 
-With YearData (location, date, gdp_per_capita, population_density, YearCases, YearDeaths) AS
+```mySQL
+WITH YearData (location, date, gdp_per_capita, population_density, YearCases, YearDeaths) AS
 (
 SELECT 
 	location,
@@ -201,4 +198,20 @@ ON y.location=v.location AND y.date = v.date
 WHERE
 	y.date = '2022-05-24'
 ORDER BY gdp_per_capita DESC;
-'''
+```
+
+
+<br><h4>Create view for future visualization</h4>
+```mySQL
+CREATE View PercentVaccinated AS
+SELECT 
+	d.continent, 
+	d.location, 
+	d.date, 
+	d.population, 
+	v.new_vaccinations,
+	sum(v.new_vaccinations) OVER (PARTITION BY d.location ORDER BY d.location, d.date) as RollingVaccinations 
+FROM Deaths d
+LEFT JOIN Vaccinations v
+ON d.location = v.location and d.date = v.date;
+```
