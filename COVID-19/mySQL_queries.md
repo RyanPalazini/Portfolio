@@ -1,8 +1,8 @@
-<h3>Data acquired from:</h3>
+<h3>Data:</h3>
 <p>https://ourworldindata.org/covid-deaths<br>
 https://github.com/owid/covid-19-data/tree/master/public/data</p>
 
-<p>The raw data is contained in a single table, but was split into tables <i>deaths</i> and <i>vaccinations</i> for the purpose of these queries. This increased the opportunity to demonstrate joins and them more readable when a self-join would have been necessary regardless. These tabless are included in the repository folder <i>COVID-19</i></p>
+<p>The raw data is contained in a single table, but was split into tables <i>deaths</i> and <i>vaccinations</i> for the purpose of these queries. This increased the opportunity to demonstrate joins and made joins more readable when a self-join would have been necessary regardless. These tables are included in the repository folder <i>COVID-19</i>.</p>
 
 <h3>Queries:</h3>
 <h4>Total Cases and Total Deaths in United States</h4>
@@ -136,7 +136,7 @@ DROP TEMPORARY TABLE PercentVaccinated;
 ```
 
 
-<br><h4>Using CTE and OVER clause to estimate the rate at which COVID is spreading.</h4>
+<br><h4>Using CTE and window function to estimate the rate at which COVID is spreading.</h4>
 
 According to CDC update Januart 14, 2022: 
 > There's "an average period of infectiousness and risk of transmission between 2-3 days before and 8 days after symptom onset."
@@ -195,8 +195,7 @@ SELECT
 FROM YearData y
 LEFT JOIN vaccinations v
 ON y.location=v.location AND y.date = v.date
-WHERE
-	y.date = '2022-05-24'
+WHERE y.date = '2022-05-24'
 ORDER BY gdp_per_capita DESC;
 ```
 
