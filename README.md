@@ -12,7 +12,7 @@
 </a><br>
 </p>
 
-This repository is a portfolio of projects completed for self learning and professional development purposes. I have a B.S. in Mathematics and have worked as an AP Calculus teacher and Semiconductor Engineering Technician since graduating with Magna Cum Lade in 2019. The job change to Engineering Technician was actually with the desire to work more with data and statistical analysis, but in order to do so more directly and intensively, I am currently pursuing a career in Data Science and Machine Learning. Please feel free to contact me using any of the provided sources above.<br>
+This repository is a portfolio of projects completed for self learning and professional development purposes. I have a B.S. in Mathematics and have worked as an AP Calculus teacher and Semiconductor Engineering Technician since graduating with Magna Cum Lade in 2019. The job change to Engineering Technician was with the desire to work more with data and statistical analysis, but in order to do so more directly and intensively, I am currently pursuing a career in Data Science and Machine Learning. Please feel free to contact me using any of the provided sources above.<br>
 
 * <h3>Time Series Analysis</h3>
 
