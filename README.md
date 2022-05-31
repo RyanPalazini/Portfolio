@@ -14,9 +14,11 @@
 
 This repository is a portfolio of projects completed for self learning and professional development purposes. I have a B.S. in Mathematics and have worked as an AP Calculus teacher and Semiconductor Engineering Technician since graduating with Magna Cum Lade in 2019. The job change to Engineering Technician was with the desire to work more with data and statistical analysis, but in order to do so more directly and intensively, I am currently pursuing a career in Data Science and Machine Learning. Please feel free to contact me using any of the provided sources above.<br>
 
-* <h3>Time Series Analysis</h3>
+* <h3><a href="https://nbviewer.org/github/RyanPalazini/Portfolio/blob/main/TimeSeries/time_series_portfolio.ipynb">Time Series Analysis</a></h3>
+The goal is to explore the data and create a model to forecast future sales based on the given features or those that are engineered. This project utilizes the Ecuador Sales Datasets from the Kaggle Time Series competition. Python libraries include, but are not limited to Plotly, Seaborn, Scikit-Learn, and Statsmodels. *\*This Project is still in progress--full work is not yet available on GitHub, but initial visualiation is available**
 
-* <h3>Classification Project</h3>
+* <h3><a href="https://github.com/RyanPalazini/Portfolio/blob/main/ClassificationProject/titanic_portfolio.ipynb">Classification Project</a></h3>
+The goal of this project is to explore the data and create a model to predict a binary target variable based on the given features or those that are engineered. The data utilized is the classic Titanic Dataset obtained from the Kaggle Titanic competition. Python libraries include, but are not limited to, matplotlib, Seaborn, Scikit-Learn, and XGB.
 
 * <h3><a href="https://github.com/RyanPalazini/Portfolio/blob/main/COVID-19/mySQL_queries.md">mySQL Project</a></h3>
 Using COVID-19 data up to May 24, 2022, this project demonstrates a variety of SQL querying methods. Queries were originally executed in dBeaver multi-platform database tool. Queries include methods such as joins, window functions, CTEs, and Temp Tables.
