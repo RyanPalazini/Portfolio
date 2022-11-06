@@ -20,8 +20,11 @@ This project explores data and creates a model to forecast future sales based on
 * <h3><a href="https://github.com/RyanPalazini/Portfolio/blob/main/ClassificationProject/titanic_portfolio.ipynb">Classification Project</a></h3>
 The goal of this project is to explore the data and create a model to predict a binary target variable based on the given features or those that are engineered. The data utilized is the classic Titanic Dataset obtained from the Kaggle Titanic competition. Python libraries include, but are not limited to, matplotlib, Seaborn, Scikit-Learn, and XGB.
 
-* <h3><a href="https://github.com/RyanPalazini/Portfolio/blob/main/COVID-19/mySQL_queries.md">mySQL Project</a></h3>
-Using COVID-19 data up to May 24, 2022, this project demonstrates a variety of SQL querying methods. Queries were originally executed in dBeaver multi-platform database tool. Queries include methods such as joins, window functions, CTEs, and Temp Tables.
+* <p style="color:#0000EE";><h3>SQL Queries and Tableau Visualization</h3></p>
+<a href="https://github.com/RyanPalazini/Portfolio/blob/main/COVID-19/mySQL_queries.md">mySQL Queries</a>: Using COVID-19 data (updated 10/26/22) this project demonstrates a variety of SQL querying methods. Queries were originally executed in dBeaver multi-platform database tool. Queries include methods such as joins, window functions, CTEs, and Temp Tables.
+
+<a href="https://public.tableau.com/app/profile/ryan.p1574/viz/COVIDDashboard_16668613475780/Story1?publish=yes: Many key measures of this COVID data have been visualized on this two-page Tableau story.
+">Tableau Visualization</a>: Many key measures of the COVID data have been visualized on this two-page Tableau story.
 
 * <h3><a href="https://github.com/RyanPalazini/Portfolio/blob/main/BlackJackGame/black-jack-game.ipynb">Python Fundamentals</a></h3>
 This project exercises foundational python skills by creating a text-based Black Jack game. The game allows for multiple players, betting, splitting hands, and more! Custom Classes and Functions are emphasized heavily in this project.
