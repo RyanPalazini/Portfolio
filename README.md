@@ -14,7 +14,7 @@
 
 This repository is a portfolio of projects completed for self learning and professional development purposes. I have a B.S. in Mathematics and have worked as an AP Calculus teacher and Semiconductor Engineering Technician since graduating with Magna Cum Lade in 2019. The job change to Engineering Technician was with the desire to work more with data and statistical analysis, but in order to do so more directly and intensively, I am currently pursuing a career in Data Science and Machine Learning. Please feel free to contact me using any of the provided sources above.<br>
 
-* <h3><a href="http://http://3.12.192.46:3838/bikeshare/">R Shiny Application</a></h3>
+* <h3><a href="http://3.12.192.46:3838/bikeshare/">R Shiny Application</a></h3>
 This is an internal tool for a hypothetical bikeshare company. The application would be utilized by an employee who manages the bike stock at bike stations throughout a particular region. A live feed of current bike locations is provided via Leaflet map, which informs the employee's decision to transfer existing bikes or deploy new bikes. The company's utilization of this application will prevent missed rental/revenue opportunities due to insufficient stock at a given location. All data is stored and updated in a NoSQL database. CouchDB and R Shiny server are hosted in an AWS EC2 instance. This application features strong use of CouchDB, R Shiny, Leaflet, and AWS.
 
 * <h3><a href="https://nbviewer.org/github/RyanPalazini/Portfolio/blob/main/TimeSeries/Time_Series_Analysis.ipynb">Time Series Analysis</a></h3>
