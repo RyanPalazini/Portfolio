@@ -8,20 +8,20 @@ from langchain.prompts import SemanticSimilarityExampleSelector, FewShotPromptTe
 from prompts import prompt_suffix, mysql_prompt, few_shots
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.prompts.prompt import PromptTemplate
+import streamlit as st
 
-from dotenv import load_dotenv
-import os
-
-
-load_dotenv()
+# Changed to using streamlit's st.secrets[]
+# from dotenv import load_dotenv
+# import os
+# load_dotenv()
 
 def get_chain(top_k): 
-    llm = GoogleGenerativeAI(model="models/gemini-pro", google_api_key=os.environ['google_api_key'], temperature=0)
+    llm = GoogleGenerativeAI(model="models/gemini-pro", google_api_key=st.secrets['google_api_key'], temperature=0)
    
-    db_user = os.environ["db_user"]
-    db_password = os.environ["db_password"]
-    db_host = os.environ["db_host"]
-    db_name = os.environ["db_name"]
+    db_user = st.secrets["db_user"]
+    db_password = st.secrets["db_password"]
+    db_host = st.secrets["db_host"]
+    db_name = st.secrets["db_name"]
     db = SQLDatabase.from_uri(
         f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}",
         sample_rows_in_table_info=3

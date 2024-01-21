@@ -1,14 +1,17 @@
 import mysql.connector
-import os
-from dotenv import load_dotenv
+import streamlit as st
 
-load_dotenv()
+# Changed to using streamlit's st.secrets[]
+# from dotenv import load_dotenv
+# import os
+# load_dotenv()
+
 cnx = mysql.connector.connect(
-    host=os.environ["db_host"], 
-    user=os.environ["db_user"],  
-    password = os.environ["db_password"],
-    port=os.environ["db_port"],
-    db=os.environ["db_name"]
+    host=st.secrets["db_host"], 
+    user=st.secrets["db_user"],  
+    password = st.secrets["db_password"],
+    port=st.secrets["db_port"],
+    db=st.secrets["db_name"]
 )
 
 tables = []
