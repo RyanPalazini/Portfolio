@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 
 # Streamlit cloud version is too old, cannot update with pip. With pysqlite3-binary in requirements.txt...
-import('pysqlite3')
+__import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
