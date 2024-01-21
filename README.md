@@ -12,9 +12,18 @@
 </a><br>
 </p>
 
-This repository is a portfolio of projects completed for self learning and professional development purposes. I have a B.S. in Mathematics and have worked as an AP Calculus teacher and Semiconductor Engineering Technician since graduating with Magna Cum Lade in 2019. The job change to Engineering Technician was with the desire to work more with data and statistical analysis, but in order to do so more directly and intensively, I am currently pursuing a career in Data Science and Machine Learning. Please feel free to contact me using any of the provided sources above.<br>
+This repository is a portfolio of projects completed for self learning and professional development purposes. I am a driven early career Data Scientist and active learner with a mathematics background and a passion for meaningful work. As a product of a diverse education and professional experience, I am an strong communicator, which facilitates productive teamwork and effective relations with stakeholders. I am currently a full-time professional and part-time graduate student seeking a new role as a Data Scientist, Data Analyst, Statistician, or similar. Please feel free to contact me using any of the platforms provided above. <br>
 
-* <h3><a https://mainpy-fgruaddvlqwwedrq5app8cu.streamlit.app/">LLM Database Query Assistant</a></h3>
+<h3>A Brief Summary of Education and Work Experience</h4> 
+
+* M.S. in Applied and Computational Mathematics **|** Johns Hopkins University **|** 2023 - Present
+* Semiconductor Engineering Technician II **|** Wolfspeed **|** 2021 - Present
+* Upper Level Mathematics Teacher (AP Calculus) **|** The King's Academy **|** 2019 - 2021
+* B.S. in Mathematics, B.S. in Ministry **|** Palm Beach Atlantic University **|** 2015 - 2019
+
+<h3>Portfolio Projects</h3>
+
+* <h3><a href="https://mainpy-fgruaddvlqwwedrq5app8cu.streamlit.app/">LLM Database Query Assistant</a></h3>
 This internal tool makes data more accessible throughout the company. Leveraging Google Gemini and the LangChain framework, this application connects to a mySQL database hosted on AWS to answer ad hoc data quesions without the need for a human to write SQL queries. This application utilizes mySQL, Python, LangChain, Google Gemini, HuggingFace, ChromaDB, AWS, and Streamlit.
 
 * <h3><a href="http://3.12.192.46:3838/bikeshare/">Bikeshare Management Application (R Shiny)</a></h3>
