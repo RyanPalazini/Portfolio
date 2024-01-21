@@ -21,7 +21,7 @@ TabMain, TabPreview = st.tabs(["Assistant","Data Preview"])
 with TabMain:
 
     top_k_select = st.selectbox(
-        label="How many results should be returned?",
+        label="Limit response to the top _ results:",
         options=("1", "5", "10", "50", "100", "500", "1000"),
         key="top_k_select",
         on_change=get_new_k
